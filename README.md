@@ -1,1 +1,1 @@
-# JS_study
+Hello git 
