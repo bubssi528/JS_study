@@ -29,7 +29,7 @@ while(true){
 for(var star = 10; star >=2 ; star = star - 2){
     console.log("*".repeat(star))
 }
-
+//마름모
 for(var star = 1 ; star <=16 ; star = star *2){
     console.log("*".repeat(star))
 }
