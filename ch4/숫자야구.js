@@ -1,12 +1,19 @@
 //제로초 script 실습용
 var 바디 = document.body;
-var 숫자후보 = [ 1, 2, 3, 4, 5, 6, 7, 8, 9];
-var 숫자배열 = [];
+var 숫자후보;
+var 숫자배열;
 
-for(var i = 0; i < 4; i +=1){
-    var 뽑은것 = 숫자후보.splice(Math.floor(Math.random() * (9 - i)),1)[0];
-    숫자배열.push(뽑은것);
+
+function 숫자뽑기(){
+    숫자후보 = [ 1, 2, 3, 4, 5, 6, 7, 8, 9];
+    숫자배열 = [];
+    for(var i = 0; i < 4; i +=1){
+        var 뽑은것 = 숫자후보.splice(Math.floor(Math.random() * (9 - i)),1)[0];
+        숫자배열.push(뽑은것);
+    }
 }
+
+숫자뽑기();
 console.log(숫자배열);
 
 var 결과창 = document.createElement('h1');
@@ -30,12 +37,7 @@ var 실패 = 0;
         결과창.textContent = '홈런';
         입력창.value = '';
         입력창.focus();
-        숫자후보 = [ 1, 2, 3, 4, 5, 6, 7, 8, 9];
-        숫자배열 = [];
-        for(var i = 0; i < 4; i +=1){
-            var 뽑은것 = 숫자후보.splice(Math.floor(Math.random() * (9 - i)),1)[0];
-            숫자배열.push(뽑은것);
-        }
+        숫자뽑기();
         실패 = 0;
     }
     else{
@@ -44,12 +46,7 @@ var 실패 = 0;
             결과창.textContent = '10번넘게 틀려서 실패'
             입력창.value = '';
             입력창.focus();
-            숫자후보 = [ 1, 2, 3, 4, 5, 6, 7, 8, 9];
-            숫자배열 = [];
-            for(var i = 0; i < 4; i +=1){
-                var 뽑은것 = 숫자후보.splice(Math.floor(Math.random() * (9 - i)),1)[0];
-                숫자배열.push(뽑은것);
-            }
+            숫자뽑기();
             실패 = 0;
         }
         var 스트라이크 = 0;
@@ -59,7 +56,6 @@ var 실패 = 0;
                 스트라이크 += 1;
             } 
             else if(String(숫자배열).indexOf(입력창.value[i]) > -1){
-                console.log(i,String(숫자배열),입력창.value[i],String(숫자배열).indexOf(입력창.value[i]));
                 볼+=1;
             }
         }
